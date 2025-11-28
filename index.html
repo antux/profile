@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antux | Full Stack Developer & Integration Specialist</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts (Fira Code for extra geek vibes) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: #05050a;
+            color: #22d3ee; /* cyan-400 */
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #05050a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #164e63; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0891b2; 
+        }
+
+        /* Background Grid Effect */
+        .bg-grid {
+            background-image: linear-gradient(#00f3ff 1px, transparent 1px), linear-gradient(90deg, #00f3ff 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.05;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* CRT Scanline Effect */
+        .scanlines {
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.2)
+            );
+            background-size: 100% 4px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 50;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+
+        /* Custom Clip Path for Button */
+        .clip-path-polygon {
+            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+        }
+
+        /* Utilities */
+        .text-glow {
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+        
+        .cursor-blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Hover effects for tech cards */
+        .tech-card:hover .tech-icon {
+            transform: scale(1.1);
+        }
+        .tech-card {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="selection:bg-cyan-900 selection:text-white relative overflow-x-hidden">
+
+    <!-- Background Elements -->
+    <div class="bg-grid"></div>
+    <div class="scanlines"></div>
+
+    <div class="relative z-10 container mx-auto px-6 py-12 max-w-5xl">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-16 border-b border-cyan-900/50 pb-4 backdrop-blur-sm">
+            <div class="flex items-center gap-2">
+                <i data-lucide="terminal" class="w-6 h-6 text-cyan-400"></i>
+                <span class="text-xl font-bold tracking-widest text-white">ANTUX<span class="text-cyan-500">_DEV</span></span>
+            </div>
+            <a href="https://github.com/antux" target="_blank" rel="noopener noreferrer" 
+               class="flex items-center gap-2 px-4 py-2 border border-cyan-500/30 text-cyan-400 hover:border-cyan-400 hover:bg-cyan-500/10 transition-all rounded text-sm group">
+                <i data-lucide="github" class="w-4 h-4 group-hover:text-white transition-colors"></i>
+                <span>GitHub Profile</span>
+            </a>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="mb-24 flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-1 space-y-6 w-full">
+                <!-- Terminal Window -->
+                <div class="bg-[#0a0a12] border border-cyan-800 rounded-lg p-6 shadow-[0_0_15px_rgba(0,243,255,0.1)] relative">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-50"></div>
+                    <div class="text-sm md:text-base text-gray-300 leading-relaxed min-h-[120px] font-mono">
+                        <span id="typewriter-text"></span><span class="cursor-blink text-cyan-400 font-bold">_</span>
+                    </div>
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tighter">
+                    ARQUITECTO DE <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 text-glow">
+                        INTEGRACIONES
+                    </span>
+                </h1>
+                <p class="text-gray-400 max-w-lg text-lg">
+                    Conectando ecosistemas digitales. Especialista en automatización, APIs complejas y desarrollo Full Stack de alto rendimiento.
+                </p>
+                
+                <div class="flex gap-4 pt-4">
+                    <button onclick="document.getElementById('integrations').scrollIntoView({behavior: 'smooth'})"
+                        class="px-6 py-3 bg-cyan-600/20 border border-cyan-500 text-cyan-300 hover:bg-cyan-500 hover:text-black transition-all font-bold clip-path-polygon flex items-center gap-2 group">
+                        <i data-lucide="zap" class="w-4 h-4 group-hover:text-black"></i>
+                        VER INTEGRACIONES
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Avatar -->
+            <div class="relative group flex-shrink-0">
+                <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-cyan-500/50 bg-black">
+                    <img 
+                        src="https://github.com/antux.png" 
+                        alt="Antux Profile" 
+                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                        onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Antux&background=000&color=0ff&size=256'"
+                    />
+                    <div class="absolute inset-0 bg-cyan-500/10 mix-blend-overlay pointer-events-none"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Grid -->
+        <section class="mb-24">
+            <div class="flex items-center gap-4 mb-8">
+                <i data-lucide="code" class="text-cyan-400 w-6 h-6"></i>
+                <h2 class="text-2xl font-bold text-white">STACK TECNOLÓGICO</h2>
+                <div class="h-px bg-cyan-900 flex-grow"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" id="tech-grid">
+                <!-- Tech items will be injected by JS -->
+            </div>
+        </section>
+
+        <!-- Integrations Module -->
+        <section id="integrations" class="mb-24 relative">
+            <div class="absolute -inset-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-xl -z-10 rounded-full"></div>
+            
+            <div class="flex items-center gap-4 mb-8">
+                <i data-lucide="cpu" class="text-purple-400 w-6 h-6"></i>
+                <h2 class="text-2xl font-bold text-white">MÓDULO DE INTEGRACIONES</h2>
+                <div class="h-px bg-cyan-900 flex-grow"></div>
+            </div>
+
+            <div class="bg-[#0a0a12]/80 backdrop-blur-md border border-cyan-500/30 rounded-xl p-8 shadow-2xl relative overflow-hidden">
+                <!-- Decorative circuits SVG -->
+                <div class="absolute top-0 right-0 p-4 opacity-20 pointer-events-none">
+                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="currentColor" class="text-cyan-500">
+                        <path d="M0 0 L20 20 L50 20 L80 50 L100 50" stroke-width="2" />
+                        <circle cx="80" cy="50" r="3" fill="currentColor" />
+                    </svg>
+                </div>
+
+                <p class="text-gray-400 mb-6 max-w-2xl">
+                    Especialista en unificar datos dispersos. Experiencia comprobada conectando sistemas CRM, ERPs y herramientas de marketing a través de APIs personalizadas y webhooks.
+                </p>
+
+                <div class="flex flex-wrap gap-3" id="integrations-list">
+                    <!-- Integrations will be injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-cyan-900/50 pt-8 pb-12 text-center text-sm text-gray-500">
+            <div class="flex justify-center gap-6 mb-6">
+                 <a href="https://github.com/antux" class="hover:text-cyan-400 transition-colors">
+                   <i data-lucide="github" class="w-6 h-6"></i>
+                 </a>
+                 <a href="#" class="hover:text-cyan-400 transition-colors pointer-events-none cursor-not-allowed opacity-50">
+                   <i data-lucide="mail" class="w-6 h-6"></i>
+                 </a>
+            </div>
+            <p>© <span id="year"></span> Antux. All systems nominal.</p>
+            <p class="text-xs mt-2 opacity-50">End of line.</p>
+        </footer>
+    </div>
+
+    <!-- Script Logic -->
+    <script>
+        // Data for Tech Stack
+        const techStack = [
+            { name: 'Vue.js', icon: 'globe', color: 'text-green-400', border: 'hover:border-green-400' },
+            { name: 'Quasar', icon: 'layers', color: 'text-blue-400', border: 'hover:border-blue-400' },
+            { name: 'Astro.build', icon: 'zap', color: 'text-orange-400', border: 'hover:border-orange-400' },
+            { name: 'Node.js', icon: 'server', color: 'text-green-500', border: 'hover:border-green-500' },
+            { name: 'Deno.js', icon: 'box', color: 'text-white', border: 'hover:border-white' },
+            { name: 'Express', icon: 'server', color: 'text-gray-400', border: 'hover:border-gray-400' },
+            { name: 'Hono.js', icon: 'zap', color: 'text-orange-500', border: 'hover:border-orange-500' },
+            { name: 'MongoDB', icon: 'database', color: 'text-green-300', border: 'hover:border-green-300' },
+            { name: 'PostgreSQL', icon: 'database', color: 'text-blue-300', border: 'hover:border-blue-300' },
+        ];
+
+        // Data for Integrations
+        const integrations = [
+            "Salesforce", "HubSpot", "Kommo CRM", "Bitrix24", "Pipedrive", 
+            "Zoho CRM", "ActiveCampaign", "Zapier", "N8N", "REST API", "GraphQL"
+        ];
+
+        // Typewriter Effect Logic
+        const typeWriterText = "> Iniciando sistema...\n> Usuario detectado: Antux\n> Perfil: Full Stack Developer & Integration Specialist\n> Estado: Online";
+        const typeWriterElement = document.getElementById('typewriter-text');
+        let i = 0;
+
+        function typeWriter() {
+            if (i < typeWriterText.length) {
+                typeWriterElement.textContent += typeWriterText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+
+        // Render Functions
+        function renderTechStack() {
+            const container = document.getElementById('tech-grid');
+            techStack.forEach(tech => {
+                const div = document.createElement('div');
+                div.className = `tech-card p-4 bg-[#0d0d16] border border-gray-800 ${tech.border} rounded group hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,243,255,0.15)] cursor-default`;
+                div.innerHTML = `
+                    <div class="flex flex-col items-center gap-3">
+                        <i data-lucide="${tech.icon}" class="tech-icon w-8 h-8 ${tech.color} transition-transform duration-300"></i>
+                        <span class="font-semibold text-gray-300 group-hover:text-white transition-colors">${tech.name}</span>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderIntegrations() {
+            const container = document.getElementById('integrations-list');
+            integrations.forEach(tool => {
+                const span = document.createElement('span');
+                span.className = "px-4 py-2 bg-[#1a1a24] border border-cyan-900/50 hover:border-cyan-400 text-cyan-100 text-sm rounded cursor-default transition-all hover:bg-cyan-900/20 hover:shadow-[0_0_10px_rgba(0,243,255,0.2)] flex items-center gap-2";
+                span.innerHTML = `
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                    ${tool}
+                `;
+                container.appendChild(span);
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Start Typewriter
+            typeWriter();
+            
+            // Render Content
+            renderTechStack();
+            renderIntegrations();
+            
+            // Set Year
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Initialize Icons (Lucide)
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
